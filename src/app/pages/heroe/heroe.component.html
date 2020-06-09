@@ -1,0 +1,45 @@
+<h1>Heroe <small>heroe name</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button routerLink="/heroes" class="btn btn-danger">
+            <i class="fa fa-arrow-left"></i> Return
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="save(formHeroe)" #formHeroe="ngForm">
+            <div class="form-group">
+              <label for="firebaseid">FireBase ID</label>
+              <input type="text" [(ngModel)]="heroe.id" class="form-control" id="firebaseid" name="id" placeholder="FireBase ID" disabled="disabled">
+            </div>
+            <div class="form-group">
+              <label for="heroename">Heroe name</label>
+              <input type="text" [(ngModel)]="heroe.name" class="form-control" id="heroename" name="name" placeholder="Heroe name" required>
+            </div>
+            <div class="form-group">
+                <label for="heroepower">Heroe power</label>
+                <input type="text" [(ngModel)]="heroe.power" class="form-control" id="heroepower" name="power" placeholder="Heroe power">
+            </div>
+            <div class="form-group">
+                <label for="isAlive">Is alive?</label>
+                <br>
+                <button *ngIf="heroe.isAlive" (click)="heroe.isAlive = false" class="btn btn-outline-success w-50" type="button">
+                    <i class="fa fa-smile-wink"></i> Alive
+                </button>
+                <button *ngIf="!heroe.isAlive" (click)="heroe.isAlive = true" class="btn btn-outline-danger w-50" type="button">
+                    <i class="fa fa-dizzy"></i> Dead
+                </button>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i> Save
+                </button>
+            </div>
+          </form>
+    </div>
+</div>
+
